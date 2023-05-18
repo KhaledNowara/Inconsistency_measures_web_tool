@@ -1,0 +1,122 @@
+   /* CSS styles go here */
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #f7f7f7;
+    padding: 20px;
+  }
+  
+  .main {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: scroll;
+  }
+  
+  .textbox {
+    width: 100%;
+    height: 400px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    resize: none;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1; /* Ensure the hamburger menu is above other elements */
+  }
+  
+  .hamburger-menu.open {
+    display: none; /* Hide the hamburger menu when it's open */
+  }
+  
+  .line {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin-bottom: 6px;
+    transition: transform 0.3s;
+  }
+  
+  /* Menu styles */
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px; /* Adjust the width as needed */
+    height: 100vh; /* Adjust the height as needed */
+    background-color: #f7f7f7;
+    padding: 20px;
+    z-index: 2; /* Ensure the menu is above other elements */
+    transform: translateX(-100%); /* Start with the menu off-screen */
+    transition: transform 0.3s;
+  }
+  
+  .menu.open {
+    transform: translateX(0); /* Slide the menu into view */
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    margin-bottom: 10px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  :root {
+    --content-margin: 0px; /* Default margin value */
+  }
+  
+  .content {
+    margin-left: var(--content-margin);
+    padding: 40px;
+    text-align: center;
+    transition: margin-left 0.3s; /* Add transition effect */
+  }
+  

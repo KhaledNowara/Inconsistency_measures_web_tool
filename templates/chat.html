@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scrollable Text Box with Buttons</title>
+  <link rel="stylesheet" href="{{url_for('static', filename ='css/chat.css')}}">
+</head>
+<body>
+  <!-- <div class="container" align = "right">
+    <div class="sidebar">
+      <h2>Sidebar</h2>
+        Akatsh
+    </div> -->
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger-menu">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+  
+
+    <div class="content">
+      <textarea class="textbox" placeholder="Type your text here..."></textarea>
+      
+      <div class="buttons">
+        <a href="#" class="button">Button 1</a>
+        <a href="#" class="button">Button 2</a>
+      </div>
+    </div>
+    
+  </div>
+
+<!--   
+  <script>
+    // JavaScript for the hamburger menu toggle
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const sidebar = document.querySelector('.sidebar');
+    
+    hamburgerMenu.addEventListener('click', () => {
+      sidebar.classList.toggle('sidebar-open');
+    });
+  </script> -->
+</body>
+</html>
