@@ -5,11 +5,7 @@
   <link rel="stylesheet" href="{{url_for('static', filename ='css/chat.css')}}">
 </head>
 <body>
-  <!-- <div class="container" align = "right">
-    <div class="sidebar">
-      <h2>Sidebar</h2>
-        Akatsh
-    </div> -->
+
     <nav class="menu">
       <ul>
         <li><a href="#">Home</a></li>
@@ -27,25 +23,86 @@
   
 
     <div class="content">
-      <textarea class="textbox" placeholder="Type your text here..."></textarea>
+      <textarea class="textbox" id="textbox" name = placeholder="Type your text here..."></textarea>
       
       <div class="buttons">
-        <a href="#" class="button">Button 1</a>
-        <a href="#" class="button">Button 2</a>
+        <button class="button"  onclick="resetTextBox()">Reset</button>
+        <button class="button"  onclick="sendData()">Submit</button>
       </div>
+    
     </div>
-    
-  </div>
+ 
+    <div class="sidebar">
+      <ul>
+        <h2>Inconsistency Measures</h2>
+        <li>
+         
+            <input type="checkbox" name="option" value="option3">
+          <label class="checkbox-label">
+            Drastic
+          </label>
+        </li>
+        <li>
 
-<!--   
-  <script>
-    // JavaScript for the hamburger menu toggle
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const sidebar = document.querySelector('.sidebar');
-    
-    hamburgerMenu.addEventListener('click', () => {
-      sidebar.classList.toggle('sidebar-open');
-    });
-  </script> -->
+            <input type="checkbox" name="option" value="option1">
+            <label class="checkbox-label">
+            MI 
+          </label>
+        </li>
+        <li>
+            <input type="checkbox" name="option" value="option2">
+            <label class="checkbox-label">
+            MI<sup>c</sup>
+          </label>
+        </li>
+        <li>
+            <input type="checkbox" name="option" value="option2">
+            <label class="checkbox-label">
+            MC
+          </label>
+        </li>
+        <li>                                                                                                      
+            <input type="checkbox" name="option" value="option2">
+            <label class="checkbox-label">
+            Problematic                                                               
+          </label>
+        </li>
+      </ul>
+      <ul>
+        <hr class="list-divider">
+        <h2>E-Witnesses</h2>
+        <li>
+         
+            <input type="checkbox" name="option" value="option3">
+          <label class="checkbox-label">
+            Resolution
+          </label>
+        </li>
+        <li>
+
+            <input type="checkbox" name="option" value="option1">
+            <label class="checkbox-label">
+              Membership 
+          </label>
+        </li>
+        <li>
+            <input type="checkbox" name="option" value="option2">
+            <label class="checkbox-label">
+              MPC
+          </label>
+        </li>
+        <li>                                                                                                      
+            <input type="checkbox" name="option" value="option2">
+            <label class="checkbox-label">
+              Complementary                                                               
+          </label>
+        </li>
+      </ul>
+    </div>
+
+  
+
+  
+
 </body>
 </html>
