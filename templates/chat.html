@@ -1,108 +1,199 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Scrollable Text Box with Buttons</title>
   <link rel="stylesheet" href="{{url_for('static', filename ='css/chat.css')}}">
 </head>
+
 <body>
 
-    <nav class="menu">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="hamburger-menu">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
-  
+  <nav class="menu">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hamburger-menu">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <div class="mainView" id="mainView">
+    <div class="measure" id="measure">
+      <div class="content">
+        <textarea class="textbox" id="textbox" name=placeholder="Type your text here..."></textarea>
 
-    <div class="content">
-      <textarea class="textbox" id="textbox" name = placeholder="Type your text here..."></textarea>
-      
-      <div class="buttons">
-        <button class="button"  onclick="resetTextBox()">Reset</button>
-        <button class="button"  onclick="sendData()">Submit</button>
+        <div class="buttons">
+          <button class="button" onclick="resetCompute()">Reset</button>
+          <button class="button" onclick="sendData()">Compute</button>
+        </div>
+
       </div>
-    
-    </div>
- 
-    <div class="sidebar">
-      <ul>
-        <h2>Inconsistency Measures</h2>
-        <li>
-         
-            <input type="checkbox" name="option" value="option3">
-          <label class="checkbox-label">
-            Drastic
-          </label>
-        </li>
-        <li>
 
-            <input type="checkbox" name="option" value="option1">
+      <div id="sidebar" class="sidebar">
+        <ul>
+          <h2>Inconsistency Measures</h2>
+          <li>
             <label class="checkbox-label">
-            MI 
-          </label>
-        </li>
-        <li>
-            <input type="checkbox" name="option" value="option2">
-            <label class="checkbox-label">
-            MI<sup>c</sup>
-          </label>
-        </li>
-        <li>
-            <input type="checkbox" name="option" value="option2">
-            <label class="checkbox-label">
-            MC
-          </label>
-        </li>
-        <li>                                                                                                      
-            <input type="checkbox" name="option" value="option2">
-            <label class="checkbox-label">
-            Problematic                                                               
-          </label>
-        </li>
-      </ul>
-      <ul>
-        <hr class="list-divider">
-        <h2>E-Witnesses</h2>
-        <li>
-         
-            <input type="checkbox" name="option" value="option3">
-          <label class="checkbox-label">
-            Resolution
-          </label>
-        </li>
-        <li>
+              Drastic
+            </label>
+            <input type="checkbox" name="measures" value="drastic">
 
-            <input type="checkbox" name="option" value="option1">
+          </li>
+          <li>
             <label class="checkbox-label">
-              Membership 
-          </label>
-        </li>
-        <li>
-            <input type="checkbox" name="option" value="option2">
+              MI
+            </label>
+            <input type="checkbox" name="measures" value="mi">
+
+          </li>
+          <li>
+            <label class="checkbox-label">
+              MI<sup>c</sup>
+            </label>
+            <input type="checkbox" name="measures" value="mic">
+
+          </li>
+          <li>
+            <label class="checkbox-label">
+              MC
+            </label>
+            <input type="checkbox" name="measures" value="mc">
+
+          </li>
+          <li>
+            <label class="checkbox-label">
+              Problematic
+            </label>
+            <input type="checkbox" name="measures" value="prob">
+
+          </li>
+        </ul>
+        <ul>
+          <hr class="list-divider">
+          <h2>E-Witnesses</h2>
+          <li>
+            <label class="checkbox-label">
+              Resolution
+            </label>
+            <div class="res_input">
+              <input type="checkbox" name="witnesses" value="resolution">
+
+              <input type="number" class="num-input" id="res_depth" name="quantity" min="0" max="9999999" step="1"
+                value="100">
+            </div>
+
+          </li>
+          <li>
+            <label class="checkbox-label">
+              Membership
+            </label>
+            <input type="checkbox" name="witnesses" value="belongs">
+
+          </li>
+          <li>
             <label class="checkbox-label">
               MPC
-          </label>
-        </li>
-        <li>                                                                                                      
-            <input type="checkbox" name="option" value="option2">
+            </label>
+            <input type="checkbox" name="witnesses" value="mpc">
+
+          </li>
+          <li>
             <label class="checkbox-label">
-              Complementary                                                               
-          </label>
-        </li>
-      </ul>
+              Complementary
+            </label>
+            <input type="checkbox" name="witnesses" value="false">
+
+          </li>
+        </ul>
+      </div>
     </div>
 
-  
 
-  
+    <div class="results" id="results">
+      <div class="content">
+        <div class="chart">
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="chart">
+          <canvas id="myChart2"></canvas>
+        </div>
+        <table id="myTable">
+          <thead>
+            <tr>
+
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table body will be populated dynamically -->
+          </tbody>
+        </table>
+
+
+
+      </div>
+
+      <div id="sidebar" class="sidebar">
+        <ul>
+
+          <li>
+            <label class="checkbox-label">
+              Inconsistency results - table
+            </label>
+            <input type="checkbox" name="measures" value="drastic">
+
+          </li>
+          <hr class="list-divider">
+          <li>
+            <label class="checkbox-label">
+              Inconsistency results - chart
+
+            </label>
+            <input type="checkbox" name="measures" value="mi">
+
+          </li>
+          <hr class="list-divider">
+          <li>
+            <label class="checkbox-label">
+              Running times - table
+            </label>
+            <input type="checkbox" name="measures" value="mic">
+
+          </li>
+          <hr class="list-divider">
+          <li>
+            <label class="checkbox-label">
+              Running times - table
+
+            </label>
+            <input type="checkbox" name="measures" value="mc">
+
+          </li>
+          <hr class="list-divider">
+          <li>
+            <button class="button" onclick="viewCompute()">Back</button>
+            
+          </li>
+          <li>
+            <button class="button" onclick="resetCompute()">Reset</button>
+          </li>
+
+        </ul>
+
+
+
+      </div>
+    </div>
+
+  </div>
+  </div>
+
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+
 </html>

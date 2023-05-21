@@ -5,14 +5,29 @@
     padding: 0;
     display: flex;
    
-    background-image: url("background.png");    /* background-color: #222629; */
-    background-size: contain;
+     background-image: url("background.png");    background-color: #222629;
+    background-size: 100%;
+    /* background-size: ; */
     /* background-repeat: no-repeat; */
     background-position: center center;
+    background-attachment: fixed;
   }
   
+.mainView{
+  flex: auto;
+  display: block;
+  margin-left: var(--content-margin);
+  transition: margin-left 0.3s; /* Add transition effect */
 
-  
+}
+  .results {
+    flex: auto;
+    display: none;
+  }
+  .measure{
+    flex: auto;
+    display:flex;
+  }
   .sidebar {
     /* width: 10/0px; */
     background-color: #474b4f;
@@ -34,6 +49,7 @@
      /* transform: translateY(5%);  */
     flex: 1;
   }
+
 
   .main {
     flex-grow: 1;
@@ -165,18 +181,20 @@ font-size: 30px;
   }
 
   :root {
-    --content-margin: 20px; /* Default margin value */
+    --content-margin: 50px; /* Default margin value */
   }
   
   .content {
-    margin-left: var(--content-margin);
+    /* margin-left: var(--content-margin); */
     padding: 50px;
     text-align: center;
-
+    overflow: auto;
+    max-height: 90vh;
     flex: 4;
     transition: margin-left 0.3s; /* Add transition effect */
 
   }
+
   
 
   
@@ -228,22 +246,26 @@ font-size: 30px;
       cursor: pointer;
       transform: translatey(-50%);
     }
+    .checkbox-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
 
     ul {
       list-style: none; /* Remove the default bullet points */
     }
     li {
       margin-bottom: 20px;
+      
+      display: flex;
+      flex-direction: column;
     }
-    li:hover{
+    /* li:hover{
       background-color: #86c232;
-      border-radius: 50px; /* Adjust the desired border radius */
-      padding: 5px; /* Adjust the desired padding */
-      padding-top:1px;
+      border-radius: 50px; 
     margin-right: 20px;
- 
 
-    }
+    } */
     
 
     .list-divider {
@@ -253,3 +275,79 @@ font-size: 30px;
       margin: 50px 0  ;
       border: none;
     }
+
+    .num-input::-webkit-inner-spin-button,
+    .num-input::-webkit-outer-spin-button{
+      border: 2px solid red; /* Customize the border style */
+      background-color: yellow; /* Customize the background color */    }
+
+    .num-input{
+      width: 3.5em; 
+      height: 1.5em; 
+      font-size: 13px;
+      background: #ddd;
+      position: relative;
+      transform: translatey(20%);
+
+      border-radius: 3em;
+      border: #ddd;
+      text-align: center;
+      outline: none;
+      margin-left: 5px;
+      /* background: none; */
+      color: #222629;
+      font-weight: bold;
+      /* width: 100%; */
+    }
+    .num-input:focus{
+      outline: none;
+      
+    }
+  
+.res_input{
+  display: flex;
+}
+.chart{
+  width: 90%;
+
+  border-radius: 10px;
+  opacity: 0.7;
+  border: 2px solid #62893f;
+  padding: 10px;
+  resize: none;
+  background-color: #474b4f;
+  margin: 3%;
+}
+
+
+
+
+#myTable {
+  width: 92%;
+  border-radius: 10px;
+  opacity: 0.7;
+  border: 2px solid #62893f;
+  padding: 10px;
+  resize: none;
+  background-color: #474b4f;
+  margin: 3%;
+  border-spacing: 0;
+
+}
+
+#myTable th,
+#myTable td {
+  border: 1px solid #6b6e70;
+  color: #62893f;
+  
+  font-size: 25px;
+    text-align: center;
+
+}
+
+#myTable th {
+  color: #86c232;
+  text-align: center;
+  font-size: 30px;    
+
+}

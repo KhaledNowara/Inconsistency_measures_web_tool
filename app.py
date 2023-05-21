@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify,redirect,url_for
+from Algorithms.im import *
 
 app = Flask(__name__)
 
+ohoy()
 @app.route('/')
 def index ():
     return render_template('chat.html')
@@ -9,14 +11,21 @@ def index ():
 @app.route('/process', methods=['POST'])
 def process_data():
     data = request.get_json()
-    input_text = data.get('input_text')
-    selected_options = data.get('selected_options')
+    kb = data.get('kb')
+    measures = data.get('measures')
+    witnesses = data.get('witnesses')
+    res_depth = data.get('res_depth')
+    
 
-    print(input_text)
+    print(data)
+    print(measures)
+    print(witnesses)
+    res = run_measures(kb,measures,witnesses,res_depth)
+
     # Do something with the received data
     # ...
 
-    response = {'message': 'Data processed successfully'}
+    response = {'message': res}
     return jsonify(response)
 
 if __name__ == "__main__":

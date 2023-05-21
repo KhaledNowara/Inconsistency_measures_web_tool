@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scrollable Text Box with Buttons</title>
+  <link rel="stylesheet" href="{{url_for('static', filename ='css/chat.css')}}">
+</head>
+<body>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger-menu">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+  
+
+    <div class="content">
+      <textarea class="textbox" id="textbox" name = placeholder="Type your text here..."></textarea>
+      
+      <div class="buttons">
+        <button class="button"  onclick="resetTextBox()">Reset</button>
+        <button class="button"  onclick="sendData()">Submit</button>
+      </div>
+    
+    </div>
+ 
+    <div class="sidebar">
+      <ul>
+        <h2>something totally different</h2>
+        <li>
+         
+            <input type="checkbox" name="measures" value="drastic">
+          <label class="checkbox-label">
+            Drastic
+          </label>
+        </li>
+        <li>
+
+            <input type="checkbox" name="measures" value="mi">
+            <label class="checkbox-label">
+            MI 
+          </label>
+        </li>
+        <li>
+            <input type="checkbox" name="measures" value="mic">
+            <label class="checkbox-label">
+            MI<sup>c</sup>
+          </label>
+        </li>
+        <li>
+            <input type="checkbox" name="measures" value="mc">
+            <label class="checkbox-label">
+            MC
+          </label>
+        </li>
+        <li>                                                                                                      
+            <input type="checkbox" name="measures" value="prob">
+            <label class="checkbox-label">
+            Problematic                                                               
+          </label>
+        </li>
+      </ul>
+      <ul>
+        <hr class="list-divider">
+        <h2>E-Witnesses</h2>
+        <li>
+         
+            <input type="checkbox" name="witnesses" value="resolution">
+
+            <input type="number" class= "num-input" id="res_depth" name="quantity" min="0" max="9999999" step="1" value="100">
+
+          <label class="checkbox-label">
+            Resolution
+          </label>
+        </li>
+        <li>
+
+            <input type="checkbox" name="witnesses" value="belongs">
+            <label class="checkbox-label">
+              Membership 
+          </label>
+        </li>
+        <li>
+            <input type="checkbox" name="witnesses" value="mpc">
+            <label class="checkbox-label">
+              MPC
+          </label>
+        </li>
+        <li>                                                                                                      
+            <input type="checkbox" name="witnesses" value="false">
+            <label class="checkbox-label">
+              Complementary                                                               
+          </label>
+        </li>
+      </ul>
+    </div>
+
+  
+
+  
+
+</body>
+</html>

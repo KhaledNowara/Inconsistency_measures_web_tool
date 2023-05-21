@@ -1,0 +1,5 @@
+p ( a )
+( Not p ( a ) )
+q ( a )
+( Not q ( a ) )
+( p ( a ) Or q ( a ) )
