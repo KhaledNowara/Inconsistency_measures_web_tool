@@ -8,203 +8,30 @@
 
 <body>
 
-  <nav class="menu">
-    <div class="icon">
-      <i class="fas fa-tasks-alt"></i> <span class="label">Measure</span>
-    </div>
-    </li>
-    <li>
-      <div class="icon">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-        <span class="label">Create E-Witness</span>
-      </div>
-    </li>
-  </nav>
+  {% include 'nav_menu.html' %}
   <div class="mainView" id="mainView">
     <div class="measure" id="measure">
-      <div class="content">
-        <textarea class="textbox" id="textbox" name=placeholder="Type your text here..."></textarea>
 
-        <div class="buttons">
-          <button class="button" onclick="resetCompute()">Reset</button>
-          <button class="button" onclick="sendData()">Compute</button>
-        </div>
-
-      </div>
-
-      <div id="sidebar" class="sidebar">
-        <ul>
-          <h2>Inconsistency Measures</h2>
-          <li>
-            <label class="checkbox-label">
-              Drastic
-            </label>
-            <input type="checkbox" name="measures" value="drastic">
-
-          </li>
-          <li>
-            <label class="checkbox-label">
-              MI
-            </label>
-            <input type="checkbox" name="measures" value="mi">
-
-          </li>
-          <li>
-            <label class="checkbox-label">
-              MI<sup>c</sup>
-            </label>
-            <input type="checkbox" name="measures" value="mic">
-
-          </li>
-          <li>
-            <label class="checkbox-label">
-              MC
-            </label>
-            <input type="checkbox" name="measures" value="mc">
-
-          </li>
-          <li>
-            <label class="checkbox-label">
-              Problematic
-            </label>
-            <input type="checkbox" name="measures" value="prob">
-
-          </li>
-        </ul>
-        <ul id="checkboxList">
-          <hr class="list-divider">
-          <h2>E-Witnesses</h2>
-
-        </ul>
-      </div>
+      {% include 'measure_main.html' %}
+      {% include 'measure_sidebar.html' %}
     </div>
-
-
     <div class="results" id="results">
-      <div class="content">
-        <div class="chart">
-          <canvas id="myChart"></canvas>
-        </div>
-        <div class="chart">
-          <canvas id="myChart2"></canvas>
-        </div>
-        <table id="myTable">
-          <thead>
-            <tr>
 
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Table body will be populated dynamically -->
-          </tbody>
-        </table>
+      {% include 'results_main.html' %}
+      {% include 'results_sidebar.html' %}
 
 
-
-      </div>
-
-      <div id="sidebar" class="sidebar">
-        <ul>
-
-          <li>
-            <label class="checkbox-label">
-              Inconsistency results - table
-            </label>
-            <input type="checkbox" name="measures" value="drastic">
-
-          </li>
-          <hr class="list-divider">
-          <li>
-            <label class="checkbox-label">
-              Inconsistency results - chart
-
-            </label>
-            <input type="checkbox" name="measures" value="mi">
-
-          </li>
-          <hr class="list-divider">
-          <li>
-            <label class="checkbox-label">
-              Running times - table
-            </label>
-            <input type="checkbox" name="measures" value="mic">
-
-          </li>
-          <hr class="list-divider">
-          <li>
-            <label class="checkbox-label">
-              Running times - table
-
-            </label>
-            <input type="checkbox" name="measures" value="mc">
-
-          </li>
-          <hr class="list-divider">
-          <li>
-            <button class="button" onclick="viewCompute()">Back</button>
-
-          </li>
-          <li>
-            <button class="button" onclick="resetCompute()">Reset</button>
-          </li>
-
-        </ul>
-
-
-
-      </div>
     </div>
 
     <div class="createWitness" id="createWitness">
-      <div class="deduction" id="deduction">
-        <div id="dropdownContainer"></div>
-        <div id="witnessN">
-          <input type="text" id="deduction_name" placeholder="Type a word">
-        </div>
-        <button class="button" onclick="createDeductionWitness()">Create Witness</button>
-      </div>
-      <div class="cut1" id="cut1">
-        <div id="dropdownContainer1"></div>
-        <div id="dropdownContainer2"></div>
-
-        <div id="witnessN">
-          <input type="text" id="cut1_name" placeholder="Type a word">
-        </div>
-        <textarea class="textbox" id="cut1_language" name=placeholder="Type your text here..."></textarea>
-
-        <button class="button" onclick="createCut1Witness()">Create Witness</button>
-      </div>
-      <div class="cut2" id="cut2">
-        <div id="c2dropdownContainer1"></div>
-        <div id="c2dropdownContainer2"></div>
-
-        <div id="witnessN">
-          <input type="text" id="cut2_name" placeholder="Type a word">
-        </div>
-        <textarea class="textbox" id="cut2_language" name=placeholder="Type your text here..."></textarea>
-
-        <button class="button" onclick="createCut2Witness()">Create Witness</button>
-      </div>
-      <div id="sidebar" class="sidebar">
-        <ul>
-
-          <hr class="list-divider">
-          <li>
-            <button class="button" onclick="viewDeduction()">Deduction</button>
-          </li>
-          <hr class="list-divider">
-          <li>
-            <button class="button" onclick="viewCut1()">Cut1</button>
-          </li>
-          <hr class="list-divider">
-          <li>
-            <button class="button" onclick="viewCut2()">Cut2</button>
-          </li>
-
-        </ul>
-    </div>
+      {% include 'create_dt.html' %}
+      {% include 'create_cut1.html' %}
+      {% include 'create_cut2.html' %}
+      {% include 'create_sidebar.html' %}
+    
 
   </div>
+
   </div>
 
 

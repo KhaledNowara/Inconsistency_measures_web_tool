@@ -1,395 +1,141 @@
-   /* CSS styles go here */
+  
    body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-   
-     background-image: url("background.png");    background-color: #222629;
-    background-size: 100%;
-    /* background-size: ; */
-    /* background-repeat: no-repeat; */
-    background-position: center center;
-    background-attachment: fixed;
-  }
-  
-.mainView{
-  flex: auto;
-  display: block;
-  margin-left: var(--content-margin);
-  transition: margin-left 0.3s; /* Add transition effect */
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     display: flex;
 
-}
-  .results {
-    flex: auto;
-    display: none;
-  }
-  .measure{
-    flex: auto;
-    display:flex;
-  }
-  .deduction{
-    flex: auto;
-    display:none;
-  }
-  .sidebar {
-    /* width: 10/0px; */
-    background-color: #474b4f;
-    /* border-radius: 3px; */
-    border-left: 2px solid #62893f; 
-    box-shadow: 0 0 3px #86c232 ; /* Shadow effect */
-    /* margin-right: 20px; */
-    /* opacity: 0.7; */
-    /* margin-top: 20px;
-    margin-bottom: 20px;
-   
-    display: grid;
-    grid-template-columns: auto 25%;
-  /*grid-template-columns: auto 300px;*/
-    /* grid-column-gap: 30px; */
-    height: 100vh; 
-    overflow: scroll;
-    z-index: 2 ; 
-    /* position: absolute; */
-     /* transform: translateY(5%);  */
-    flex: 1;
-  }
+     background-image: url("background.png");
+     background-color: #222629;
+     background-size: 100%;
+     /* background-size: ; */
+     /* background-repeat: no-repeat; */
+     background-position: center center;
+     background-attachment: fixed;
+   }
+
+   .mainView {
+     flex: auto;
+     display: block;
+     margin-left: var(--content-margin);
+     transition: margin-left 0.3s;
+     /* Add transition effect */
+
+   }
+
+   .results {
+     flex: auto;
+     display: none;
+   }
+
+   .measure {
+     flex: auto;
+     display: flex;
+   }
+
+   .deduction {
+     flex: auto;
+     display: none;
+   }
 
 
-  .main {
-    flex-grow: 1;
-    padding: 1-px;
-    overflow-y: scroll;
-  }
-  
-  .textbox {
-    border-radius: 10px;
-    width: 100%;
-    height: 80%;
-    opacity: 0.7;
-    border: 2px solid #62893f;
-    padding: 10px;
-    resize: none;
-    background-color: #474b4f;
-  }
 
-/* ... other CSS styles ... */
+   .main {
+     flex-grow: 1;
+     padding: 1-px;
+     overflow-y: scroll;
+   }
 
-input:focus, textarea:focus {
-  outline: none; /* Remove the focus outline */
-  /* OR */
-  outline: 3px solid #86c232; /* Change this to the desired color and style */
-}
-input[type="text"], textarea {
-  color: #86c232; /* Change this to the desired color */
-font-size: 30px;
-}
-/* ... other CSS styles ... */
+   .textbox {
+     border-radius: 10px;
+     width: 100%;
+     height: 80%;
+     opacity: 0.7;
+     border: 2px solid #62893f;
+     padding: 10px;
+     resize: none;
+     background-color: #474b4f;
+   }
 
-  .buttons {
-    display: flex;
-    justify-content: right;
-    margin-top: 20px;
-    
-  }
-  
-  .button {
-    width: 190px; /* Adjust the desired width */
-  height: 70px; /* Adjust the desired height */
-  font-size: 30px; /* Adjust the desired font size */
+   /* ... other CSS styles ... */
+
+   input:focus,
+   textarea:focus {
+     outline: none;
+     /* Remove the focus outline */
+     /* OR */
+     outline: 3px solid #86c232;
+     /* Change this to the desired color and style */
+   }
+
+   input[type="text"],
+   textarea {
+     color: #86c232;
+     /* Change this to the desired color */
+     font-size: 30px;
+   }
+
+   /* ... other CSS styles ... */
+
+   .buttons {
+     display: flex;
+     justify-content: right;
+     margin-top: 20px;
+
+   }
+
+   .button {
+     width: 190px;
+     /* Adjust the desired width */
+     height: 70px;
+     /* Adjust the desired height */
+     font-size: 30px;
+     /* Adjust the desired font size */
      padding: 10px 30px;
-     margin-left:3%;
+     margin-left: 3%;
 
-    background-color: #86c232;
-     color:#222629; 
-    border: 1px;
-   text-decoration: none;
-    border-radius: 50px;
-    transition: background-color 0.3s;
-    transition: transform 0.2s ease;
-    margin-right: 10px; 
-  }
-  
-  .button:hover {
-    background-color: #62893f;
-    transform: scale(1.1);
+     background-color: #86c232;
+     color: #222629;
+     border: 1px;
+     text-decoration: none;
+     border-radius: 50px;
+     transition: background-color 0.3s;
+     transition: transform 0.2s ease;
+     margin-right: 10px;
+   }
 
-  }
-  .hamburger-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    padding:5px ;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    flex: 1;
-    cursor: pointer;
-    z-index: 1; /* Ensure the hamburger menu is above other elements */
-  }
-  
-  .hamburger-menu.open {
-    display: none; /* Hide the hamburger menu when it's open */
-  }
-  
-  .line {
-    width: 30px;
-    height: 3px;
-    background-color: #62893f;
-    margin-bottom: 6px;
-    transition: transform 0.3s;
-  }
-  
-  /* Menu styles */
-  .menu {
-    position: fixed;
-    border-radius: 20px;
-    /* margin: auto; */
+   .button:hover {
+     background-color: #62893f;
+     transform: scale(1.1);
+
+   }
 
 
-    top: 0;
-    left: 10;
-    width: 50px; /* Adjust the width as needed */
-    height: 50vh; /* Adjust the height as needed */
-    background-color: #62893f;
-    opacity: 0.7;
-    padding: 20px;
-    margin-left: 10px;
-    flex: 2;
-    z-index: 2; /* Ensure the menu is above other elements */
-    /* transform: translateX(-100%);  */
-    transform: translateY(30%);
-    transition: transform 0.3s;
-  }
-  
-  .menu.open {
-    transform: translateX(10%); /* Slide the menu into view */
-    
 
-  }
-  .menu:hover {
-    width: 300px;
-    padding: 20px;
-  }
-  
-  .menu ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .menu li {
-    margin-bottom: 200px;
-    cursor: pointer;
-  }
-  
+   :root {
+     --content-margin: 80px;
+     /* Default margin value */
+   }
 
-  
-  .menu .icon .label {
-    visibility: hidden;
-    text-decoration: none;
-    color:#222629;
-    font-weight: bold;
-    font-size: 32px;
-    opacity: 0;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-  
-  .menu:hover .icon .label {
-    visibility: visible;
-    opacity: 1;
-    text-decoration: none;
-    color:#222629;
-    font-weight: bold;
-    font-size: 32px;
-    opacity: 1;
-    
-   
-  }
-  .menu .icon i {
-    font-size: 32px; /* Adjust the font size as needed */
-    color:#222629;
-    padding: 10px;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  .menu:hover .icon{
-    font-size: 32px; /* Adjust the font size as needed */
-    color:#222629;
-    padding: 12px;
-    margin-right: 10px;
-  }
-  :root {
-    --content-margin: 80px; /* Default margin value */
-  }
-  
-  .content {
-    /* margin-left: var(--content-margin); */
-    padding: 50px;
-    text-align: center;
-    overflow: auto;
-    max-height: 90vh;
-    flex: 4;
-    transition: margin-left 0.3s; /* Add transition effect */
+   .content {
+     /* margin-left: var(--content-margin); */
+     padding: 50px;
+     text-align: center;
+     overflow: auto;
+     max-height: 90vh;
+     flex: 4;
+     transition: margin-left 0.3s;
+     /* Add transition effect */
 
-  }
+   }
 
-  
 
-  
-  input[type="checkbox"]{
-    font-size: 15px;
-    
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-    width: 3.5em;
-    height: 1.5em;
-    background: #ddd;
-    border-radius: 3em;
-    position: relative;
-    cursor: pointer;
-    outline: none;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    }
-    
-    input[type="checkbox"]:checked{
-    background: #86c232;
-    }
-    
-    input[type="checkbox"]:after{
-    position: absolute;
-    content: "";
-    width: 1.5em;
-    height: 1.5em;
-    border-radius: 50%;
-    background: #fff;
-    -webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
-            box-shadow: 0 0 .25em rgba(0,0,0,.3);
-    -webkit-transform: scale(.7);
-            transform: scale(.7);
-    left: 0;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    }
-    
-    input[type="checkbox"]:checked:after{
-    left: calc(100% - 1.5em);
-    }
-    .checkbox-label {
-      font-size: 20px;
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 5px; /* Adjust the spacing between the checkbox and label */
-      cursor: pointer;
-      transform: translatey(-50%);
-    }
-    .checkbox-wrapper {
-      display: flex;
-      flex-direction: column;
-    }
 
-    ul {
-      list-style: none; /* Remove the default bullet points */
-    }
-    li {
-      margin-bottom: 20px;
-      
-      display: flex;
-      flex-direction: column;
-    }
-    /* li:hover{
+
+
+   /* li:hover{
       background-color: #86c232;
       border-radius: 50px; 
     margin-right: 20px;
 
     } */
-    
-
-    .list-divider {
-      height: 1px;
-      width: 80%;
-      background-color: #62893f;
-      margin: 50px 0  ;
-      border: none;
-    }
-
-    .num-input::-webkit-inner-spin-button,
-    .num-input::-webkit-outer-spin-button{
-      border: 2px solid red; /* Customize the border style */
-      background-color: yellow; /* Customize the background color */    }
-
-    .num-input{
-      width: 3.5em; 
-      height: 1.5em; 
-      font-size: 13px;
-      background: #ddd;
-      position: relative;
-      transform: translatey(20%);
-
-      border-radius: 3em;
-      border: #ddd;
-      text-align: center;
-      outline: none;
-      margin-left: 5px;
-      /* background: none; */
-      color: #222629;
-      font-weight: bold;
-      /* width: 100%; */
-    }
-    .num-input:focus{
-      outline: none;
-      
-    }
-  
-.res_input{
-  display: flex;
-}
-.chart{
-  width: 90%;
-
-  border-radius: 10px;
-  opacity: 0.7;
-  border: 2px solid #62893f;
-  padding: 10px;
-  resize: none;
-  background-color: #474b4f;
-  margin: 3%;
-}
-
-
-
-
-#myTable {
-  width: 92%;
-  border-radius: 10px;
-  opacity: 0.7;
-  border: 2px solid #62893f;
-  padding: 10px;
-  resize: none;
-  background-color: #474b4f;
-  margin: 3%;
-  border-spacing: 0;
-
-}
-
-#myTable th,
-#myTable td {
-  border: 1px solid #6b6e70;
-  color: #62893f;
-  
-  font-size: px;
-    text-align: center;
-
-}
-
-#myTable th {
-  color: #86c232;
-  text-align: center;
-  font-size: 30px;    
-
-}

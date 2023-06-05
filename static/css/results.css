@@ -1,0 +1,46 @@
+
+.chart{
+    width: 90%;
+  
+    border-radius: 10px;
+    opacity: 0.7;
+    border: 2px solid #62893f;
+    padding: 10px;
+    resize: none;
+    background-color: #474b4f;
+    margin: 3%;
+  }
+  
+  
+  
+  
+  #myTable {
+    width: 92%;
+    border-radius: 10px;
+    opacity: 0.7;
+    border: 2px solid #62893f;
+    padding: 10px;
+    resize: none;
+    background-color: #474b4f;
+    margin: 3%;
+    border-spacing: 0;
+  
+  }
+  
+  #myTable th,
+  #myTable td {
+    border: 1px solid #6b6e70;
+    color: #62893f;
+    
+    font-size: px;
+      text-align: center;
+  
+  }
+  
+  #myTable th {
+    color: #86c232;
+    text-align: center;
+    font-size: 30px;    
+  
+  }
+  

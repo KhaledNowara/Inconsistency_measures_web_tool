@@ -1,46 +1,50 @@
 <div id="sidebar" class="sidebar">
     <ul>
-      <h2>Inconsistency Measures</h2>
+
       <li>
         <label class="checkbox-label">
-          Drastic
+          Inconsistency results - table
         </label>
         <input type="checkbox" name="measures" value="drastic">
 
       </li>
+      <hr class="list-divider">
       <li>
         <label class="checkbox-label">
-          MI
+          Inconsistency results - chart
+
         </label>
         <input type="checkbox" name="measures" value="mi">
 
       </li>
+      <hr class="list-divider">
       <li>
         <label class="checkbox-label">
-          MI<sup>c</sup>
+          Running times - table
         </label>
         <input type="checkbox" name="measures" value="mic">
 
       </li>
+      <hr class="list-divider">
       <li>
         <label class="checkbox-label">
-          MC
+          Running times - table
+
         </label>
         <input type="checkbox" name="measures" value="mc">
 
       </li>
+      <hr class="list-divider">
       <li>
-        <label class="checkbox-label">
-          Problematic
-        </label>
-        <input type="checkbox" name="measures" value="prob">
+        <button class="button" onclick="viewCompute()">Back</button>
 
       </li>
-    </ul>
-    <ul id="checkboxList">
-      <hr class="list-divider">
-      <h2>E-Witnesses</h2>
+      <li>
+        <button class="button" onclick="resetCompute()">Reset</button>
+      </li>
 
     </ul>
+
+
+
   </div>
-</div>

@@ -1,0 +1,79 @@
+  /* Menu styles */
+  .menu {
+    position: fixed;
+    border-radius: 20px;
+    /* margin: auto; */
+
+
+    top: 0;
+    left: 10;
+    width: 50px; /* Adjust the width as needed */
+    height: 50vh; /* Adjust the height as needed */
+    background-color: #62893f;
+    opacity: 0.7;
+    padding: 20px;
+    margin-left: 10px;
+    flex: 2;
+    z-index: 2; /* Ensure the menu is above other elements */
+    /* transform: translateX(-100%);  */
+    transform: translateY(30%);
+    transition: transform 0.3s;
+  }
+  
+  .menu.open {
+    transform: translateX(10%); /* Slide the menu into view */
+    
+
+  }
+  .menu:hover {
+    width: 300px;
+    padding: 20px;
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    margin-bottom: 200px;
+    cursor: pointer;
+  }
+  
+
+  
+  .menu .icon .label {
+    visibility: hidden;
+    text-decoration: none;
+    color:#222629;
+    font-weight: bold;
+    font-size: 32px;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  .menu:hover .icon .label {
+    visibility: visible;
+    opacity: 1;
+    text-decoration: none;
+    color:#222629;
+    font-weight: bold;
+    font-size: 32px;
+    opacity: 1;
+    
+   
+  }
+  .menu .icon i {
+    font-size: 32px; /* Adjust the font size as needed */
+    color:#222629;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .menu:hover .icon{
+    font-size: 32px; /* Adjust the font size as needed */
+    color:#222629;
+    padding: 12px;
+    margin-right: 10px;
+  }
