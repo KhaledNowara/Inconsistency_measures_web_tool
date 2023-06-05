@@ -50,7 +50,7 @@ def parser (filename):
 # nextNodes = [lastNode]
 # while (nextNodes != []):
 #     loopNode = nextNodes.pop(0)
-#     print(loopNode.data)
+#      (loopNode.data)
 #     for parent in loopNode.parents:
 #         if not parent in nextNodes:
 #             nextNodes.append(parent)
@@ -61,6 +61,7 @@ def check(clauses,witness):
 
 def shrink(node,allNodes,witness):
     while not check(node.data,witness):
+
         newNode = False
         for parent in node.parents:
             if not check(parent.data,witness):
@@ -72,7 +73,6 @@ def shrink(node,allNodes,witness):
         if not newNode : 
             break
         
-    
     return node 
 
 
@@ -119,6 +119,14 @@ def Marco(filename,witness):
                         allNodes.remove(parent)
                     blockDown.append(parent)
         else:
+            blockUp = [seed]
+            while blockUp:
+                currentNode = blockUp.pop()
+                for child in currentNode.children: 
+                    if child in allNodes:
+                        allNodes.remove(child)
+                    blockUp.append(child)
+            
             mus.add(shrink(seed,allNodes,witness))
 
     # for node in mss:
@@ -136,13 +144,16 @@ def Marco(filename,witness):
     return(mss,mus)
 
 def get_SC(filename,witness):
-    sc = []
+    sc = set ()
     lines = filename.splitlines()
+    
     for line in lines:
-        folClause = interpreter(line,0 )
-        folClause = folClause.Eliminate().PushNegation().Standardize().Distribute().Flatten().GetDisjunction()
-        if (witness(folClause)):
-            sc.append(folClause)
+         my_set = set ()
+         folClause = interpreter(line, 0 )
+         folClause = folClause.Eliminate().PushNegation().Standardize().Distribute().Flatten().GetDisjunction()
+         my_set.update(folClause)
+         if (witness(my_set)):
+            sc.update(folClause)
     return sc
 
 def get_Drastic (filename,witness):

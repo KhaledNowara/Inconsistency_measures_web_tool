@@ -9,18 +9,17 @@
 <body>
 
   <nav class="menu">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
+    <div class="icon">
+      <i class="fas fa-tasks-alt"></i> <span class="label">Measure</span>
+    </div>
+    </li>
+    <li>
+      <div class="icon">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span class="label">Create E-Witness</span>
+      </div>
+    </li>
   </nav>
-  <div class="hamburger-menu">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
   <div class="mainView" id="mainView">
     <div class="measure" id="measure">
       <div class="content">
@@ -72,42 +71,10 @@
 
           </li>
         </ul>
-        <ul>
+        <ul id="checkboxList">
           <hr class="list-divider">
           <h2>E-Witnesses</h2>
-          <li>
-            <label class="checkbox-label">
-              Resolution
-            </label>
-            <div class="res_input">
-              <input type="checkbox" name="witnesses" value="resolution">
 
-              <input type="number" class="num-input" id="res_depth" name="quantity" min="0" max="9999999" step="1"
-                value="100">
-            </div>
-
-          </li>
-          <li>
-            <label class="checkbox-label">
-              Membership
-            </label>
-            <input type="checkbox" name="witnesses" value="belongs">
-
-          </li>
-          <li>
-            <label class="checkbox-label">
-              MPC
-            </label>
-            <input type="checkbox" name="witnesses" value="mpc">
-
-          </li>
-          <li>
-            <label class="checkbox-label">
-              Complementary
-            </label>
-            <input type="checkbox" name="witnesses" value="false">
-
-          </li>
         </ul>
       </div>
     </div>
@@ -175,7 +142,7 @@
           <hr class="list-divider">
           <li>
             <button class="button" onclick="viewCompute()">Back</button>
-            
+
           </li>
           <li>
             <button class="button" onclick="resetCompute()">Reset</button>
@@ -188,6 +155,55 @@
       </div>
     </div>
 
+    <div class="createWitness" id="createWitness">
+      <div class="deduction" id="deduction">
+        <div id="dropdownContainer"></div>
+        <div id="witnessN">
+          <input type="text" id="deduction_name" placeholder="Type a word">
+        </div>
+        <button class="button" onclick="createDeductionWitness()">Create Witness</button>
+      </div>
+      <div class="cut1" id="cut1">
+        <div id="dropdownContainer1"></div>
+        <div id="dropdownContainer2"></div>
+
+        <div id="witnessN">
+          <input type="text" id="cut1_name" placeholder="Type a word">
+        </div>
+        <textarea class="textbox" id="cut1_language" name=placeholder="Type your text here..."></textarea>
+
+        <button class="button" onclick="createCut1Witness()">Create Witness</button>
+      </div>
+      <div class="cut2" id="cut2">
+        <div id="c2dropdownContainer1"></div>
+        <div id="c2dropdownContainer2"></div>
+
+        <div id="witnessN">
+          <input type="text" id="cut2_name" placeholder="Type a word">
+        </div>
+        <textarea class="textbox" id="cut2_language" name=placeholder="Type your text here..."></textarea>
+
+        <button class="button" onclick="createCut2Witness()">Create Witness</button>
+      </div>
+      <div id="sidebar" class="sidebar">
+        <ul>
+
+          <hr class="list-divider">
+          <li>
+            <button class="button" onclick="viewDeduction()">Deduction</button>
+          </li>
+          <hr class="list-divider">
+          <li>
+            <button class="button" onclick="viewCut1()">Cut1</button>
+          </li>
+          <hr class="list-divider">
+          <li>
+            <button class="button" onclick="viewCut2()">Cut2</button>
+          </li>
+
+        </ul>
+    </div>
+
   </div>
   </div>
 
@@ -195,5 +211,6 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 </html>

@@ -28,6 +28,10 @@
     flex: auto;
     display:flex;
   }
+  .deduction{
+    flex: auto;
+    display:none;
+  }
   .sidebar {
     /* width: 10/0px; */
     background-color: #474b4f;
@@ -44,6 +48,7 @@
   /*grid-template-columns: auto 300px;*/
     /* grid-column-gap: 30px; */
     height: 100vh; 
+    overflow: scroll;
     z-index: 2 ; 
     /* position: absolute; */
      /* transform: translateY(5%);  */
@@ -147,21 +152,27 @@ font-size: 30px;
 
     top: 0;
     left: 10;
-    width: 200px; /* Adjust the width as needed */
-    height: 80vh; /* Adjust the height as needed */
+    width: 50px; /* Adjust the width as needed */
+    height: 50vh; /* Adjust the height as needed */
     background-color: #62893f;
-    opacity: 1;
+    opacity: 0.7;
     padding: 20px;
+    margin-left: 10px;
     flex: 2;
     z-index: 2; /* Ensure the menu is above other elements */
-    transform: translateX(-100%); /* Start with the menu off-screen */
+    /* transform: translateX(-100%);  */
+    transform: translateY(30%);
     transition: transform 0.3s;
   }
   
   .menu.open {
     transform: translateX(10%); /* Slide the menu into view */
-    transform: translateY(10%); 
+    
 
+  }
+  .menu:hover {
+    width: 300px;
+    padding: 20px;
   }
   
   .menu ul {
@@ -171,17 +182,48 @@ font-size: 30px;
   
   .menu li {
     margin-bottom: 200px;
+    cursor: pointer;
   }
   
-  .menu a {
+
+  
+  .menu .icon .label {
+    visibility: hidden;
     text-decoration: none;
     color:#222629;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 32px;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.2s;
   }
-
+  
+  .menu:hover .icon .label {
+    visibility: visible;
+    opacity: 1;
+    text-decoration: none;
+    color:#222629;
+    font-weight: bold;
+    font-size: 32px;
+    opacity: 1;
+    
+   
+  }
+  .menu .icon i {
+    font-size: 32px; /* Adjust the font size as needed */
+    color:#222629;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .menu:hover .icon{
+    font-size: 32px; /* Adjust the font size as needed */
+    color:#222629;
+    padding: 12px;
+    margin-right: 10px;
+  }
   :root {
-    --content-margin: 50px; /* Default margin value */
+    --content-margin: 80px; /* Default margin value */
   }
   
   .content {
@@ -340,7 +382,7 @@ font-size: 30px;
   border: 1px solid #6b6e70;
   color: #62893f;
   
-  font-size: 25px;
+  font-size: px;
     text-align: center;
 
 }

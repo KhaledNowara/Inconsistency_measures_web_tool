@@ -95,9 +95,15 @@ class Disjunction:
      def Eliminate(self):
         return Disjunction([self.paramList[0].Eliminate(),self.paramList[1].Eliminate()],self._id  ) 
      def PushNegation(self):
-         return Disjunction([self.paramList[0].PushNegation(),self.paramList[1].PushNegation()],self._id  )
+        disjuncts = []
+        for i in range(len(self.paramList)):
+            disjuncts.append(self.paramList[i].PushNegation())
+        return Disjunction(disjuncts,self._id  ) 
      def Negate(self):
-        return Conjunction([self.paramList[0].PushNegation().Negate(),self.paramList[1].PushNegation().Negate()],self._id  )
+        conjuncts = []
+        for i in range(len(self.paramList)):
+            conjuncts.append(self.paramList[i].PushNegation().Negate())
+        return Conjunction(conjuncts,self._id  )
      def Standardize (self,replacements = {}):
          return Disjunction([self.paramList[0].Standardize(replacements),self.paramList[1].Standardize(replacements)],self._id  )
      def Distribute (self, sentence = None):
@@ -155,9 +161,15 @@ class Conjunction:
      def Eliminate(self):
         return Conjunction([self.paramList[0].Eliminate(),self.paramList[1].Eliminate()],self._id  )
      def PushNegation(self):
-         return Conjunction([self.paramList[0].PushNegation(),self.paramList[1].PushNegation()],self._id  )
+        conjuncts = []
+        for i in range(len(self.paramList)):
+            conjuncts.append(self.paramList[i].PushNegation())
+        return Conjunction(conjuncts,self._id  )
      def Negate(self):
-        return Disjunction([self.paramList[0].PushNegation().Negate(),self.paramList[1].PushNegation().Negate()],self._id  ) 
+        disjuncts = []
+        for i in range(len(self.paramList)):
+            disjuncts.append(self.paramList[i].PushNegation().Negate())
+        return Disjunction(disjuncts,self._id  ) 
      def Standardize (self,replacements = {}):
          return Conjunction([self.paramList[0].Standardize(replacements),self.paramList[1].Standardize(replacements)],self._id  )
      def Distribute(self, sentence = None):
@@ -182,7 +194,10 @@ class Conjunction:
              return Conjunction(flatList,self._id  ) 
      
      def GetDisjunction (self):
-         return self.paramList
+         disjuncts = []
+         for param in self.paramList:
+             disjuncts.extend (param.GetDisjunction())
+         return disjuncts
      
      def GetZ3clause(self):
          
@@ -360,7 +375,7 @@ class false:
     param = 0
     def __init__(self,_id  = -1) :
         self._id  = _id 
-        self.name = "False"
+        self.name = "Boolean"
         self.subjects = []
         # subject is variable , constant or function
 
@@ -373,7 +388,7 @@ class false:
     def PushNegation(self):
         return self
     def Negate(self):
-        return Negation([self],self._id)
+       return true()
     def Standardize (self, replacements = {}) :
 
                 
@@ -393,8 +408,7 @@ class false:
         return self
 
     def Unify (self, mate):
-       if isinstance(mate,false):
-        return True
+        return mate.name == self.name
     
     def GetZ3clause(self):
          return False
@@ -404,7 +418,7 @@ class true:
     param = 0
     def __init__(self,_id  = -1) :
         self._id  = _id 
-        self.name = "True"
+        self.name = "Boolean"
         self.subjects = []
         # subject is variable , constant or function
 
@@ -416,7 +430,7 @@ class true:
     def PushNegation(self):
         return self
     def Negate(self):
-        return Negation([self],self._id)
+        return false()
     def Standardize (self, replacements = {}) :
 
                 
@@ -436,8 +450,7 @@ class true:
         return self
 
     def Unify (self, mate):
-       if isinstance(mate,false):
-        return True
+        return mate.name == self.name
     
     def GetZ3clause(self):
          return True
@@ -492,6 +505,7 @@ def interpreter (sentence, _id  ):
                 else:
                     operand.append(cls(_id ))
                 # remove start bracket
+                operator.pop()
         else :
             operand.append(token)
     return operand.pop()

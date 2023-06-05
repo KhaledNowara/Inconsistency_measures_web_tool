@@ -19,6 +19,7 @@ def MI (filename,Ewitness):
 
 def MIC(filename,Ewitness):
     mus = Marco(filename,Ewitness)[1]
+
     Sum = sum(1/(len(x.data)) for x in mus)
 
     return Sum
@@ -40,10 +41,10 @@ def problematic(filename,Ewitness):
 # Marko.Marco("tests/test5.cnf")
 
 witness_map = {
-    'false': FalseEWitness,
-    'mpc': DecidableFragmentEwitness,
-    'belongs': belongsEwitness,
-    'resolution' : resolutionTreeEwitness,
+    'Complementary': Complementary.check,
+    'Mpc': Mpc.check,
+    'Membership': Membership.check,
+    'Resolution' : Resolution.check,
 
 }
 
@@ -61,7 +62,7 @@ def run_measures(kb, measures, witnesses,res_depth):
 
     results = []
     times = []
-    change_depth(int(res_depth))
+    Resolution.change_depth(int(res_depth))
     for witness in witnesses:
         result = [witness]
         t = [witness]
@@ -81,10 +82,11 @@ def run_measures(kb, measures, witnesses,res_depth):
    
 
 def ohoy (): 
-    try:
-       print(run_measures("P  ) \n Q fe asd( x ) \n  ( Not P ( x ) ) \n F ( x ) ",["mi"],["resolution"],0 ))
-    except Exception as e:
-        print (e)
-    print ("ohoy")
+    pass
+    # try:
+    #    print(run_measures("P  ) \n Q fe asd( x ) \n  ( Not P ( x ) ) \n F ( x ) ",["mi"],["resolution"],0 ))
+    # except Exception as e:
+    #     print (e)
+    # print ("ohoy")
 
 
